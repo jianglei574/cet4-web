@@ -1,0 +1,118 @@
+/* 底部导航 tab */
+.nav-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 0 12px;
+  font-size: 12px;
+  color: #94a3b8;
+  transition: color 0.15s ease;
+}
+
+.nav-tab.active {
+  color: #ef4444;
+}
+
+/* 导航里的小新图标（激活时加胶囊背景） */
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  border-radius: 10px;
+  box-sizing: content-box;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.nav-tab.active .nav-icon {
+  background: #fee2e2;
+  transform: translateY(-1px);
+}
+
+/* 首页 hero 大形象 + 漂浮动画 */
+.hero-shinchan {
+  width: 76px;
+  height: 76px;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 童趣标题字体 */
+.font-display {
+  font-family: "ZCOOL KuaiLe", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 学习入口按钮 hover 上浮 */
+#btnLearnNew:hover, #btnReview:hover, #btnLearnNew2:hover, #btnReview2:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* 选择题选项 */
+.quiz-option {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.08);
+  font-size: 15px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+}
+
+.quiz-option:active {
+  transform: scale(0.98);
+}
+
+.quiz-option.correct {
+  background: #d1fae5;
+  border: 2px solid #10b981;
+  color: #065f46;
+}
+
+.quiz-option.wrong {
+  background: #fee2e2;
+  border: 2px solid #f43f5e;
+  color: #9f1239;
+}
+
+.quiz-option.disabled {
+  pointer-events: none;
+}
+
+/* 视图切换 */
+.view {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 隐藏滚动条但保留滚动 */
+main::-webkit-scrollbar {
+  display: none;
+}
+
+/* 轻提示 toast */
+.toast-msg {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: #fff;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  z-index: 50;
+  animation: fadeIn 0.2s ease;
+  max-width: 80%;
+  text-align: center;
+}

@@ -1,0 +1,6 @@
+.vercel/
+.claude/
+.mcp.json
+node_modules/
+*.log
+.DS_Store
