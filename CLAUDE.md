@@ -1,0 +1,1 @@
+这是一个现代化的背四级单词应用。请使用原生 HTML/CSS/JS，建议引入 Tailwind CSS 进行样式美化（用CDN链接即可），确保移动端适配。数据存取部分仍封装在 dataService.js 中。使用 localStorage 存储进度和数据结构，为后续接入数据库做准备。·
