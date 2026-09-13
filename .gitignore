@@ -4,3 +4,7 @@
 node_modules/
 *.log
 .DS_Store
+
+# 本地无头浏览器回归测试脚本及其截图产物（仅本地用，不纳入仓库）
+_verify.js
+_shot*.png

@@ -1,4 +1,30 @@
-/* 底部导航 tab */
+/* ============================================================
+   四级单词 · 样式表
+   设计基线：蜡笔小新童趣风（红/橙/琥珀暖色系）+ DaisyUI cupcake
+   本文件的动效只使用 transform / opacity，保证移动端 GPU 合成、不掉帧
+   ============================================================ */
+
+/* ---------- 应用外壳：暖色渐变 + 柔和光斑（纯背景层，绝不遮挡内容） ---------- */
+.app-shell {
+  background:
+    radial-gradient(circle at 12% 6%, rgba(253, 164, 175, 0.35), transparent 46%),
+    radial-gradient(circle at 88% 92%, rgba(253, 186, 116, 0.30), transparent 46%),
+    linear-gradient(165deg, #fff7ed 0%, #fff1f2 48%, #fffbeb 100%);
+}
+
+/* ---------- 字体 ---------- */
+/* 中文标题：站酷快乐体（童趣） */
+.font-display {
+  font-family: "ZCOOL KuaiLe", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 数字/英文：Fredoka 圆润几何体（避免站酷快乐体把 0 渲染成方框） */
+.font-num {
+  font-family: "Fredoka", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 底部导航 tab ---------- */
 .nav-tab {
   flex: 1;
   display: flex;
@@ -8,43 +34,45 @@
   padding: 10px 0 12px;
   font-size: 12px;
   color: #94a3b8;
-  transition: color 0.15s ease;
+  transition: color 0.18s ease, transform 0.18s ease;
 }
 
 .nav-tab.active {
   color: #ef4444;
 }
 
-/* 导航里的小新图标（激活时加胶囊背景） */
 .nav-icon {
   width: 28px;
   height: 28px;
   padding: 4px;
   border-radius: 10px;
   box-sizing: content-box;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .nav-tab.active .nav-icon {
-  background: #fee2e2;
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #fee2e2, #fecdd3);
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 4px 12px -4px rgba(239, 68, 68, 0.5);
 }
 
-/* 首页 hero 大形象 + 漂浮动画 */
+/* ---------- 首页 hero 大形象 ---------- */
 .hero-shinchan {
   width: 76px;
   height: 76px;
   animation: float 3s ease-in-out infinite;
 }
 
-/* 童趣标题字体 */
-.font-display {
-  font-family: "ZCOOL KuaiLe", "PingFang SC", "Microsoft YaHei", sans-serif;
+.mascot-btn {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
 }
 
-/* 学习入口按钮 hover 上浮 */
-#btnLearnNew:hover, #btnReview:hover, #btnLearnNew2:hover, #btnReview2:hover {
-  transform: translateY(-2px);
+.mascot-btn:active .hero-shinchan {
+  transform: scale(0.92);
 }
 
 @keyframes float {
@@ -52,45 +80,230 @@
   50% { transform: translateY(-8px); }
 }
 
-/* 选择题选项 */
-.quiz-option {
-  width: 100%;
-  text-align: left;
-  padding: 14px 16px;
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.08);
-  font-size: 15px;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+/* 打卡天数：心跳般的呼吸感 */
+.streak-beat {
+  display: inline-block;
+  animation: streak-beat 2.4s ease-in-out infinite;
 }
 
-.quiz-option:active {
+@keyframes streak-beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+}
+
+/* 吉祥物被点/换表情时的弹跳（先压后弹） */
+.mascot-pop {
+  animation: mascot-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes mascot-pop {
+  0% { transform: scale(1); }
+  35% { transform: scale(0.82, 1.12); }
+  60% { transform: scale(1.12, 0.88); }
+  100% { transform: scale(1); }
+}
+
+/* 气泡对话框 */
+.bubble {
+  position: relative;
+  animation: bubble-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bubble-pop {
+  from { opacity: 0; transform: scale(0.6) translateY(4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* 星星装饰：微微闪烁 */
+.sparkle {
+  animation: sparkle 2.2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.15) rotate(20deg); }
+}
+
+/* 生词本空状态吉祥物：轻轻摇摆 */
+.sway {
+  transform-origin: 50% 100%;
+  animation: sway 3.2s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+/* ---------- 暖色覆盖：DaisyUI cupcake 的 primary 是青蓝，这里改成小新的珊瑚暖色 ---------- */
+#newCountBadge,
+#newCountBadge2 {
+  border: none;
+  background: #ffe4e6;
+  color: #e11d48;
+}
+
+#reviewCountBadge,
+#reviewCountBadge2 {
+  border: none;
+  background: #fef3c7;
+  color: #d97706;
+}
+
+#btnNextQuiz,
+#doneClose {
+  border: none;
+  background-image: linear-gradient(90deg, #fb7185, #ef4444, #fb923c);
+  color: #fff;
+  box-shadow: 0 6px 16px -6px rgba(239, 68, 68, 0.55);
+}
+
+#btnNextQuiz:hover,
+#doneClose:hover {
+  filter: brightness(1.06);
+}
+
+/* ---------- 学习入口卡片按钮 ---------- */
+.entry-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 18px -6px rgba(15, 23, 42, 0.10);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  .entry-card:hover {
+    transform: translateY(-2px);
+    border-color: #fecdd3;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05), 0 12px 24px -8px rgba(239, 68, 68, 0.24);
+  }
+}
+
+.entry-card:active {
   transform: scale(0.98);
 }
 
+/* ---------- 选择题选项 ---------- */
+.quiz-option {
+  width: 100%;
+  text-align: left;
+  padding: 15px 18px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1.5px solid transparent;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 18px -6px rgba(15, 23, 42, 0.12);
+  font-size: 15px;
+  transition: transform 0.14s cubic-bezier(0.2, 0.8, 0.3, 1),
+              box-shadow 0.18s ease,
+              background-color 0.18s ease,
+              border-color 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  .quiz-option:not(.disabled):hover {
+    transform: translateY(-2px);
+    border-color: #fecdd3;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05), 0 12px 24px -8px rgba(239, 68, 68, 0.24);
+  }
+}
+
+.quiz-option:active {
+  transform: scale(0.975);
+}
+
 .quiz-option.correct {
-  background: #d1fae5;
-  border: 2px solid #10b981;
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  border-color: #10b981;
   color: #065f46;
+  animation: pop-correct 0.45s cubic-bezier(0.2, 1.4, 0.4, 1);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.18), 0 10px 24px -8px rgba(16, 185, 129, 0.5);
 }
 
 .quiz-option.wrong {
-  background: #fee2e2;
-  border: 2px solid #f43f5e;
+  background: linear-gradient(135deg, #ffe4e6, #fecdd3);
+  border-color: #f43f5e;
   color: #9f1239;
+  animation: shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.16);
 }
 
 .quiz-option.disabled {
   pointer-events: none;
 }
 
-/* 视图切换 */
+@keyframes pop-correct {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.045); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-7px); }
+  40%, 60% { transform: translateX(7px); }
+}
+
+/* ---------- 学习进度条：渐变流光 ---------- */
+#studyProgressBar::-webkit-progress-bar {
+  background-color: #ffe4e6;
+  border-radius: 9999px;
+}
+
+#studyProgressBar::-webkit-progress-value {
+  background-image: linear-gradient(90deg, #fb7185, #ef4444, #fb923c, #ef4444);
+  background-size: 200% 100%;
+  border-radius: 9999px;
+  animation: progress-flow 2.2s linear infinite;
+}
+
+#studyProgressBar::-moz-progress-bar {
+  background-image: linear-gradient(90deg, #fb7185, #ef4444, #fb923c, #ef4444);
+  border-radius: 9999px;
+}
+
+@keyframes progress-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ---------- 答题反馈面板：滑入 ---------- */
+#quizFeedback:not(.hidden) {
+  animation: feedback-in 0.32s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+@keyframes feedback-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------- 单词弹跳（切题时） ---------- */
+.word-pop {
+  animation: word-pop 0.5s cubic-bezier(0.2, 1.3, 0.4, 1);
+}
+
+@keyframes word-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- 视图切换 ---------- */
 .view {
-  animation: fadeIn 0.2s ease;
+  animation: fadeIn 0.28s cubic-bezier(0.2, 0.9, 0.3, 1);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -99,20 +312,23 @@ main::-webkit-scrollbar {
   display: none;
 }
 
-/* 轻提示 toast */
-.toast-msg {
-  position: fixed;
-  top: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #1e293b;
-  color: #fff;
-  font-size: 14px;
-  padding: 12px 20px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  z-index: 50;
-  animation: fadeIn 0.2s ease;
-  max-width: 80%;
-  text-align: center;
+/* ---------- 列表项弹入（生词本） ---------- */
+.notebook-item {
+  animation: item-in 0.28s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+@keyframes item-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 尊重「减少动态效果」的系统偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
