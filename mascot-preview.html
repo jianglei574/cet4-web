@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>咕噜 · 形象小样</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(180deg,#fff7ee 0%,#ffeede 100%);color:#3a2f28;min-height:100vh}
+  .wrap{max-width:760px;margin:0 auto;padding:40px 20px 64px;text-align:center}
+  h1{font-size:24px;margin:0 0 6px}
+  .sub{color:#9a8a78;font-size:14px;margin:0 0 8px}
+  .note{background:#fff2e6;border:1px solid #ffdcc8;border-radius:12px;padding:12px 16px;font-size:13px;color:#8a6f5a;line-height:1.7;margin:24px auto 0;max-width:520px;text-align:left}
+  .stage{display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap;padding:24px 0 8px}
+  .box{display:flex;flex-direction:column;align-items:center;gap:10px;background:#fff;border:1px solid #eee0d2;border-radius:18px;padding:20px 26px;box-shadow:0 6px 20px rgba(120,80,40,.07)}
+  .box svg{width:172px;height:172px}
+  .label{font-size:14px;font-weight:600;color:#8a6f5a}
+  .grow-arrow{font-size:13px;color:#b09c86;line-height:1.7;text-align:center}
+  .grow-arrow b{display:block;font-size:15px;color:#ff7a6b}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎨 咕噜 · 形象小样</h1>
+  <p class="sub">雪白团子 · 大眼 · 两片大叶子插头顶 · 圆圈手 + 圆圈脚</p>
+
+  <div class="stage">
+    <div class="box">
+      <svg viewBox="0 0 220 220" aria-label="基础馒头形象"><use href="#gulu-half"/></svg>
+      <div class="label">基础 · 馒头形</div>
+    </div>
+    <div class="grow-arrow">打卡多天<br><b>长大 ↓</b><br>长成圆球</div>
+    <div class="box">
+      <svg viewBox="0 0 220 220" aria-label="长大圆球形象"><use href="#gulu-ball"/></svg>
+      <div class="label">长大 · 圆球</div>
+    </div>
+  </div>
+
+  <div class="note">
+    这版：长大后的圆球<b>明显更大</b>（比基础版大一圈），手脚也<b>加长</b>了；身体是不规则软团子、手脚带自然弧度、都是小圆圈。
+    看看顺不顺眼。
+  </div>
+</div>
+
+<!-- SVG 符号库 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- 基础：软馒头形雪白团子 -->
+    <g id="gulu-half">
+      <path d="M58 150 C46 150 40 156 38 162" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M162 150 C174 150 180 156 182 162" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="36" cy="164" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+      <circle cx="184" cy="164" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+      <path d="M92 180 L90 196" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M128 180 L130 196" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="90" cy="199" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+      <circle cx="130" cy="199" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+      <path d="M50 166 C50 116 76 96 110 96 C144 96 170 116 170 166 C170 176 156 181 110 181 C64 181 50 176 50 166 Z" fill="#ffffff" stroke="#3a2a22" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M110 96 C110 90 110 85 110 82" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M110 85 C98 83 84 72 70 56 C92 63 105 76 110 85 Z" fill="#7cc56c" stroke="#3a2a22" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M110 85 C122 83 136 72 150 56 C128 63 115 76 110 85 Z" fill="#7cc56c" stroke="#3a2a22" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="84" cy="142" r="16" fill="#333"/>
+      <circle cx="136" cy="142" r="16" fill="#333"/>
+      <circle cx="89" cy="136" r="6" fill="#fff"/>
+      <circle cx="93" cy="147" r="2.6" fill="#fff"/>
+      <circle cx="141" cy="136" r="6" fill="#fff"/>
+      <circle cx="145" cy="147" r="2.6" fill="#fff"/>
+      <ellipse cx="70" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/>
+      <ellipse cx="150" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/>
+      <path d="M98 166 Q110 174 122 166" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- 长大：软弹不规则大团子（比基础版更大，手脚更长） -->
+    <g id="gulu-ball">
+      <path d="M48 138 C38 140 32 148 30 156" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M172 138 C182 140 188 148 190 156" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="28" cy="158" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+      <circle cx="192" cy="158" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+      <path d="M94 190 C91 197 88 202 86 207" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M126 190 C129 197 132 202 134 207" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="85" cy="210" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+      <circle cx="135" cy="210" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+      <path d="M43 136 C41 100 73 76 110 76 C147 76 179 100 179 136 C181 171 151 194 112 194 C72 194 45 171 43 136 Z" fill="#ffffff" stroke="#3a2a22" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M110 76 C110 70 110 64 110 61" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M110 64 C96 62 82 50 68 34 C92 42 106 55 110 64 Z" fill="#7cc56c" stroke="#3a2a22" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M110 64 C124 62 138 50 152 34 C128 42 114 55 110 64 Z" fill="#7cc56c" stroke="#3a2a22" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="82" cy="128" r="17" fill="#333"/>
+      <circle cx="138" cy="128" r="17" fill="#333"/>
+      <circle cx="87" cy="122" r="6" fill="#fff"/>
+      <circle cx="91" cy="133" r="2.7" fill="#fff"/>
+      <circle cx="143" cy="122" r="6" fill="#fff"/>
+      <circle cx="147" cy="133" r="2.7" fill="#fff"/>
+      <ellipse cx="70" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/>
+      <ellipse cx="150" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/>
+      <path d="M98 148 Q110 156 122 148" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+  </defs>
+</svg>
+</body>
+</html>
