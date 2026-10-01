@@ -72,7 +72,8 @@
     today: ["今日", "开始今天的背单词吧"],
     study: ["学习", "练习与巩固"],
     notebook: ["生词本", "收藏的单词"],
-    stats: ["统计", "学习记录与打卡"]
+    stats: ["统计", "学习记录与打卡"],
+    shop: ["商城", "给咕噜换新装"]
   };
 
   // —— 工具 ——
@@ -193,8 +194,46 @@
   }
 
   // —— 吉祥物互动 ——
+  var GROW_XP = 100; // 累计经验值满 100（升到 Lv.2），咕噜从小馒头长成大团子
+  function grown() { return ds.getXp() >= GROW_XP; }
+
+  // 商城时装目录（id 对应 SVG 符号 #gulu-outfit-<id>）
+  var OUTFITS = [
+    { id: "crown", name: "皇冠", price: 60 },
+    { id: "hat", name: "草帽", price: 80 },
+    { id: "scarf", name: "围巾", price: 90 },
+    { id: "bow", name: "蝴蝶结", price: 100 },
+    { id: "santa", name: "圣诞帽", price: 120 },
+    { id: "ears", name: "兔耳朵", price: 150 }
+  ];
+  var COMBO_MILESTONES = [3, 5, 10, 15, 20];
+  function comboBonus(combo) { return COMBO_MILESTONES.indexOf(combo) !== -1 ? 10 : 0; }
+  // 按表情 + 成长形态返回符号 id（未长成时追加 -bun 后缀）
+  function guluRef(mood) { return "#gulu-" + mood + (grown() ? "" : "-bun"); }
+
   function heroUse() { return document.querySelector("#mascotHero use"); }
   function feedbackUse() { return document.querySelector("#feedbackMascot use"); }
+
+  // 把常驻吉祥物（头像/首页/导航/生词本/结算）统一刷成当前成长形态
+  function renderMascotGrowth() {
+    var targets = [
+      ["#headerMascotUse", "idle"],
+      ["#mascotHero use", "idle"],
+      ['.nav-tab[data-view="today"] use', "idle"],
+      ['.nav-tab[data-view="study"] use', "happy"],
+      ['.nav-tab[data-view="notebook"] use', "heart"],
+      ['.nav-tab[data-view="stats"] use', "celebrate"],
+      ['.nav-tab[data-view="shop"] use', "happy"],
+      ["#notebookMascotUse", "heart"],
+      ["#doneMascotUse", "celebrate"],
+      ["#feedbackMascot use", "idle"]
+    ];
+    targets.forEach(function (t) {
+      var el = document.querySelector(t[0]);
+      if (el) el.setAttribute("href", guluRef(t[1]));
+    });
+    applyOutfit();
+  }
 
   // 更新首页气泡文字并弹出
   function sayBubble(msg) {
@@ -208,13 +247,13 @@
   function setMascotMood(happy) {
     var u = feedbackUse();
     if (!u) return;
-    u.setAttribute("href", happy ? "#shinchan-happy" : "#shinchan-sad");
+    u.setAttribute("href", guluRef(happy ? "happy" : "sad"));
     replay($("feedbackMascot"), "mascot-pop");
   }
 
   function resetMascotMood() {
     var u = feedbackUse();
-    if (u) u.setAttribute("href", "#shinchan");
+    if (u) u.setAttribute("href", guluRef("idle"));
   }
 
   // 待机小动作：首页吉祥物偶尔眨眼
@@ -222,13 +261,82 @@
     var u = heroUse();
     if (!u) return;
     setInterval(function () {
-      u.setAttribute("href", "#shinchan-blink");
-      setTimeout(function () { u.setAttribute("href", "#shinchan"); }, 150);
+      u.setAttribute("href", guluRef("blink"));
+      setTimeout(function () { u.setAttribute("href", guluRef("idle")); }, 150);
     }, 4600);
+  }
+
+  // 穿戴中的时装叠加到头像 + 首页英雄吉祥物上
+  function applyOutfit() {
+    var outfit = ds.getEquippedOutfit();
+    var href = outfit ? "#gulu-outfit-" + outfit : "#gulu-outfit-none";
+    var hero = $("heroOutfit");
+    var header = $("headerOutfit");
+    if (hero) hero.setAttribute("href", href);
+    if (header) header.setAttribute("href", href);
+  }
+
+  // 连击徽章
+  function updateCombo(hitMilestone) {
+    var badge = $("comboBadge");
+    if (!badge) return;
+    var c = session ? session.combo : 0;
+    if (c >= 2) {
+      badge.classList.remove("hidden");
+      badge.textContent = "🔥 x" + c;
+      if (hitMilestone) replay(badge, "combo-pop");
+    } else {
+      badge.classList.add("hidden");
+    }
+  }
+
+  // 飘字反馈（+XP / +金币）
+  function showFloat(text, anchor) {
+    var el = document.createElement("div");
+    el.className = "xp-float";
+    el.textContent = text;
+    var r = anchor.getBoundingClientRect();
+    el.style.left = (r.left + r.width / 2) + "px";
+    el.style.top = r.top + "px";
+    document.body.appendChild(el);
+    setTimeout(function () { el.remove(); }, 900);
+  }
+
+  // Web Audio 合成音效（无音频文件）
+  var audioCtx = null;
+  function playSfx(kind) {
+    try {
+      if (!audioCtx) {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        audioCtx = new AC();
+      }
+      if (audioCtx.state === "suspended") audioCtx.resume();
+      var t0 = audioCtx.currentTime;
+      function tone(freq, start, dur, type, vol) {
+        var o = audioCtx.createOscillator();
+        var g = audioCtx.createGain();
+        o.type = type || "sine";
+        o.frequency.value = freq;
+        g.gain.setValueAtTime(0.0001, t0 + start);
+        g.gain.exponentialRampToValueAtTime(vol || 0.15, t0 + start + 0.012);
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + start + dur);
+        o.connect(g);
+        g.connect(audioCtx.destination);
+        o.start(t0 + start);
+        o.stop(t0 + start + dur + 0.03);
+      }
+      if (kind === "correct") { tone(880, 0, 0.12, "sine", 0.16); tone(1318.5, 0.09, 0.16, "sine", 0.14); }
+      else if (kind === "wrong") { tone(160, 0, 0.24, "sawtooth", 0.10); tone(110, 0.02, 0.22, "sawtooth", 0.08); }
+      else if (kind === "combo") { tone(1046.5, 0, 0.10, "sine", 0.15); tone(1318.5, 0.07, 0.10, "sine", 0.15); tone(1568, 0.14, 0.18, "sine", 0.15); }
+      else if (kind === "levelup") { tone(523.25, 0, 0.12, "sine", 0.15); tone(659.25, 0.10, 0.12, "sine", 0.15); tone(784, 0.20, 0.12, "sine", 0.15); tone(1046.5, 0.30, 0.26, "sine", 0.16); }
+      else if (kind === "coin") { tone(988, 0, 0.09, "square", 0.07); tone(1318.5, 0.08, 0.15, "square", 0.07); }
+    } catch (e) { /* 忽略音频异常 */ }
   }
 
   // —— 视图切换 ——
   function switchView(name) {
+    renderMascotGrowth();
     document.querySelectorAll(".view").forEach(function (v) {
       v.classList.add("hidden");
     });
@@ -241,11 +349,14 @@
     $("viewTitle").textContent = TITLES[name][0];
     $("viewSubtitle").textContent = TITLES[name][1];
     $("headerStreak").textContent = ds.getStreak();
+    $("headerCoins").textContent = ds.getCoins();
+    $("headerLevel").textContent = "Lv." + ds.getLevel();
 
     if (name === "today") renderToday();
     if (name === "notebook") renderNotebook();
     if (name === "stats") renderStats();
     if (name === "study") renderStudyHome();
+    if (name === "shop") renderShop();
   }
 
   // —— 今日 ——
@@ -259,6 +370,27 @@
     $("todayTotalStudy").textContent = ds.getTotalStudyCount();
     $("newCountBadge").textContent = ds.getNewCount();
     $("reviewCountBadge").textContent = ds.getDueCount();
+    renderCheckIn();
+  }
+
+  // 每日签到
+  function renderCheckIn() {
+    var state = ds.getCheckIn();
+    var btn = $("checkInBtn");
+    var label = $("checkInLabel");
+    if (!btn) return;
+    if (state.checkedToday) {
+      btn.textContent = "今日已签到";
+      btn.disabled = true;
+      btn.classList.add("btn-disabled");
+      label.textContent = "已连签 " + state.streak + " 天 · 明日再领 " + (10 + state.streak * 5) + " 金币";
+    } else {
+      var nextStreak = state.streak + 1;
+      btn.textContent = "签到领奖";
+      btn.disabled = false;
+      btn.classList.remove("btn-disabled");
+      label.textContent = "连签第 " + nextStreak + " 天可领 " + (10 + (nextStreak - 1) * 5) + " 金币 + 5 XP";
+    }
   }
 
   // —— 学习会话 ——
@@ -278,7 +410,10 @@
       correct: 0,
       wrong: 0,
       total: queue.length,
-      learned: 0
+      learned: 0,
+      combo: 0,
+      xp: 0,
+      coins: 0
     };
     $("studyHome").classList.add("hidden");
     $("studySession").classList.remove("hidden");
@@ -333,6 +468,10 @@
     var total = session.total;
     var reviewed = session.queue.length;
     var correct = session.correct;
+    var xp = session.xp || 0;
+    var coins = session.coins || 0;
+    var levelBefore = Math.floor((ds.getXp() - xp) / 100) + 1;
+    var levelNow = ds.getLevel();
 
     var body;
     if (isLearn) {
@@ -341,10 +480,15 @@
       var rate = reviewed ? Math.round(correct / reviewed * 100) : 0;
       body = "共 <b>" + reviewed + "</b> 个，答对 <b>" + correct + "</b> 个 · 正确率 <b>" + rate + "%</b>";
     }
+    body += "<div class='mt-2 text-sm text-slate-500'>本轮 +<b>" + xp + "</b> 经验值 · +<b>" + coins + "</b> 金币</div>";
+    if (levelNow > levelBefore) {
+      body += "<div class='mt-1 text-lg font-bold text-orange-500'>🎉 升级到 Lv." + levelNow + "！</div>";
+    }
 
     session = null;
     switchView("today");
     celebrate();
+    if (levelNow > levelBefore) playSfx("levelup");
     $("doneModalTitle").textContent = isLearn ? "本轮新词学完啦！" : "本轮复习完成！";
     $("doneModalBody").innerHTML = body;
     $("doneModal").showModal();
@@ -397,10 +541,27 @@
       btn.classList.add("correct");
       burstConfetti();
       setMascotMood(true);
+      // 连击 + 经验值 + 金币
+      session.combo++;
+      var bonus = comboBonus(session.combo);
+      var xp = 10 + bonus;
+      session.xp += xp;
+      session.coins += 2;
+      ds.addXp(xp);
+      ds.addCoins(2);
+      showFloat("+" + xp + " XP", btn);
+      updateCombo(bonus > 0);
+      playSfx("correct");
+      if (bonus > 0) { playSfx("combo"); burstConfetti(); }
     } else {
       btn.classList.add("wrong");
       correctBtn.classList.add("correct");
       setMascotMood(false);
+      // 答错：连击归零 + 抖动 + 低鸣
+      session.combo = 0;
+      updateCombo(false);
+      replay(btn, "shake");
+      playSfx("wrong");
     }
 
     if (session.mode === "learn") {
@@ -483,7 +644,64 @@
     countTo("statsMastered", ds.getMasteredCount());
     countTo("statsLearned", ds.getLearnedCount());
     countTo("statsTotalStudy", ds.getTotalStudyCount());
+    countTo("statsXp", ds.getXp());
+    countTo("statsCoins", ds.getCoins());
+    $("statsLevel").textContent = "Lv." + ds.getLevel();
     renderHeatmap();
+  }
+
+  // 商城
+  function renderShop() {
+    $("shopCoins").textContent = ds.getCoins();
+    var owned = ds.getOwnedOutfits();
+    var equipped = ds.getEquippedOutfit();
+    var container = $("shopGrid");
+    container.innerHTML = "";
+    OUTFITS.forEach(function (o) {
+      var isOwned = owned.indexOf(o.id) !== -1;
+      var isEquipped = equipped === o.id;
+
+      var card = document.createElement("div");
+      card.className = "shop-card";
+      card.innerHTML =
+        '<svg viewBox="0 0 220 220" class="shop-preview" aria-hidden="true">' +
+          '<use href="' + guluRef("idle") + '"></use>' +
+          '<use href="#gulu-outfit-' + o.id + '"></use>' +
+        '</svg>' +
+        '<div class="shop-name">' + o.name + '</div>' +
+        '<div class="shop-price">' + (isOwned ? "已拥有" : "🪙 " + o.price) + '</div>';
+
+      var btn = document.createElement("button");
+      if (isEquipped) {
+        btn.className = "btn btn-sm btn-disabled";
+        btn.textContent = "穿戴中";
+        btn.disabled = true;
+      } else if (isOwned) {
+        btn.className = "btn btn-sm btn-outline";
+        btn.textContent = "穿戴";
+      } else {
+        btn.className = "btn btn-sm btn-primary";
+        btn.textContent = "购买";
+      }
+      btn.addEventListener("click", function () {
+        if (isOwned) {
+          ds.equipOutfit(o.id);
+          applyOutfit();
+          renderShop();
+          playSfx("coin");
+        } else if (ds.buyOutfit(o.id, o.price)) {
+          ds.equipOutfit(o.id);
+          applyOutfit();
+          renderShop();
+          playSfx("coin");
+        } else {
+          toast("金币不足，先去签到赚金币吧", "info");
+        }
+      });
+
+      card.appendChild(btn);
+      container.appendChild(card);
+    });
   }
 
   function colorFor(count) {
@@ -547,11 +765,21 @@
   });
 
   // 首页吉祥物：摸一下 → 弹跳 + 彩带 + 随机鼓励语（惊喜彩蛋）
-  var CHEERS = ["加油！你是最棒的～", "冲鸭！", "今天也要元气满满！", "小新陪你一起背单词～", "好棒呀！", "继续加油，胜利在望！"];
+  var CHEERS = ["加油！你是最棒的～", "冲鸭！", "今天也要元气满满！", "咕噜陪你一起背单词～", "好棒呀！", "继续加油，胜利在望！"];
   $("mascotHero").addEventListener("click", function () {
     replay($("mascotHero"), "mascot-pop");
     burstConfetti();
     sayBubble(CHEERS[Math.floor(Math.random() * CHEERS.length)]);
+  });
+
+  // 每日签到
+  $("checkInBtn").addEventListener("click", function () {
+    var r = ds.checkIn();
+    if (r.already) return;
+    playSfx("coin");
+    showFloat("+" + r.earnedCoins + " 🪙", $("checkInBtn"));
+    toast("签到成功：+" + r.earnedCoins + " 金币、+5 XP（连签 " + r.streak + " 天）", "success");
+    switchView("today");
   });
 
   // 重置：DaisyUI modal 确认

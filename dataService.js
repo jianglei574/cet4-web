@@ -9031,7 +9031,8 @@
     progress: "cet4.progress",
     stats: "cet4.stats",
     notebook: "cet4.notebook",
-    meta: "cet4.meta"
+    meta: "cet4.meta",
+    outfits: "cet4.outfits"
   };
 
   function load(key, fallback) {
@@ -9245,6 +9246,91 @@
       return Object.keys(stats).reduce(function (sum, k) {
         return sum + stats[k].newCount + stats[k].reviewCount;
       }, 0);
+    },
+
+    // —— 经验值 / 金币 / 签到 / 时装（多邻国式养成） ——
+    addXp: function (n) {
+      var meta = load(KEYS.meta, {});
+      meta.xp = (meta.xp || 0) + n;
+      save(KEYS.meta, meta);
+      return meta.xp;
+    },
+
+    getXp: function () {
+      return load(KEYS.meta, {}).xp || 0;
+    },
+
+    getLevel: function () {
+      return Math.floor(this.getXp() / 100) + 1;
+    },
+
+    getCoins: function () {
+      return load(KEYS.meta, {}).coins || 0;
+    },
+
+    addCoins: function (n) {
+      var meta = load(KEYS.meta, {});
+      meta.coins = (meta.coins || 0) + n;
+      save(KEYS.meta, meta);
+      return meta.coins;
+    },
+
+    spendCoins: function (n) {
+      var meta = load(KEYS.meta, {});
+      if ((meta.coins || 0) < n) return false;
+      meta.coins = (meta.coins || 0) - n;
+      save(KEYS.meta, meta);
+      return true;
+    },
+
+    // 每日签到：连签递增不封顶，发金币 + 经验值
+    checkIn: function () {
+      var today = todayKey();
+      var meta = load(KEYS.meta, {});
+      if (meta.lastCheckIn === today) return { already: true };
+      var streak = meta.lastCheckIn === daysAgoKey(1) ? (meta.checkInStreak || 0) + 1 : 1;
+      var earnedCoins = 10 + (streak - 1) * 5;
+      meta.lastCheckIn = today;
+      meta.checkInStreak = streak;
+      meta.coins = (meta.coins || 0) + earnedCoins;
+      meta.xp = (meta.xp || 0) + 5;
+      save(KEYS.meta, meta);
+      return { already: false, streak: streak, earnedCoins: earnedCoins };
+    },
+
+    getCheckIn: function () {
+      var meta = load(KEYS.meta, {});
+      return {
+        checkedToday: meta.lastCheckIn === todayKey(),
+        streak: meta.checkInStreak || 0
+      };
+    },
+
+    getOwnedOutfits: function () {
+      var o = load(KEYS.outfits, { owned: [], equipped: null });
+      return o.owned || [];
+    },
+
+    getEquippedOutfit: function () {
+      var o = load(KEYS.outfits, { owned: [], equipped: null });
+      return o.equipped || null;
+    },
+
+    buyOutfit: function (id, price) {
+      var o = load(KEYS.outfits, { owned: [], equipped: null });
+      if (!o.owned) o.owned = [];
+      if (o.owned.indexOf(id) !== -1) return false;
+      if (!this.spendCoins(price)) return false;
+      o.owned.push(id);
+      save(KEYS.outfits, o);
+      return true;
+    },
+
+    equipOutfit: function (id) {
+      var o = load(KEYS.outfits, { owned: [], equipped: null });
+      if (!o.owned) o.owned = [];
+      o.equipped = id; // id 可为 null 表示卸下
+      save(KEYS.outfits, o);
     },
 
     resetAll: function () {

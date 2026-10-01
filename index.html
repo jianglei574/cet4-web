@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>四级单词 · 背单词</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖍️</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- ZCOOL KuaiLe：中文标题；Fredoka：圆润数字/英文，避免站酷快乐体把 0 渲染成方框 -->
@@ -16,7 +16,7 @@
 </head>
 <body class="antialiased bg-rose-50">
 
-  <!-- 蜡笔小新抽象吉祥物 SVG 符号库 -->
+  <!-- 咕噜吉祥物 SVG 符号库：馒头形（基础）→ 圆球（长大），多种表情 -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <!-- 蜡笔涂鸦装饰 -->
@@ -28,224 +28,177 @@
         <path d="M12 2 l1.8 6.2 L20 10 l-6.2 1.8 L12 18 l-1.8 -6.2 L4 10 l6.2 -1.8 Z" fill="currentColor"/>
       </symbol>
 
-      <!-- 主形象：挥手 + 拿蓝色蜡笔 -->
-      <symbol id="shinchan" viewBox="0 0 64 64">
-        <rect x="12" y="7" width="40" height="30" rx="15" fill="#ffd9a8"/>
-        <path d="M12 20 Q12 7 32 7 Q52 7 52 20 Z" fill="#2b2b2b"/>
-        <path d="M29 7 L32 1.5 L35 7 Z" fill="#2b2b2b"/>
-        <rect x="17" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <rect x="36" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <ellipse cx="22" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <ellipse cx="42" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <circle cx="21" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="41" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="32" cy="32.8" r="1.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="34.8" rx="4.4" ry="2.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="35.7" rx="2.4" ry="1.1" fill="#f472b6"/>
-        <circle cx="18" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <circle cx="46" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <rect x="18" y="37" width="28" height="15" rx="6" fill="#ef4444"/>
-        <rect x="19" y="50" width="26" height="9" rx="4" fill="#facc15"/>
-        <rect x="24" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="35" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="22" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <rect x="34" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <ellipse cx="16" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(-12 16 46)"/>
-        <ellipse cx="48" cy="38" rx="3.5" ry="7" fill="#ffd9a8" transform="rotate(28 48 38)"/>
-        <rect x="8" y="38" width="7" height="20" rx="2" fill="#3b82f6"/>
-        <rect x="8" y="40" width="7" height="5" fill="#ffffff" opacity="0.9"/>
-        <line x1="8" y1="44" x2="15" y2="44" stroke="#93c5fd" stroke-width="1"/>
-        <path d="M8 56 L15 56 L11.5 63 Z" fill="#1d4ed8"/>
-      </symbol>
+      <!-- 身体：馒头形（基础形态，非标准半圆，底部微弧） -->
+      <g id="gulu-body-bun">
+        <path d="M58 150 C46 150 40 156 38 162" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M162 150 C174 150 180 156 182 162" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="36" cy="164" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+        <circle cx="184" cy="164" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+        <path d="M92 180 L90 196" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M128 180 L130 196" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="90" cy="199" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+        <circle cx="130" cy="199" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+        <path d="M50 166 C50 116 76 96 110 96 C144 96 170 116 170 166 C170 176 156 181 110 181 C64 181 50 176 50 166 Z" fill="#ffffff" stroke="#3a2a22" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M110 96 C110 90 110 85 110 82" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M110 85 C98 83 84 72 70 56 C92 63 105 76 110 85 Z" fill="#7cc56c" stroke="#3a2a22" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M110 85 C122 83 136 72 150 56 C128 63 115 76 110 85 Z" fill="#7cc56c" stroke="#3a2a22" stroke-width="3" stroke-linejoin="round"/>
+      </g>
 
-      <!-- 开心：眯眼 + 大笑 + 星星（答对/庆祝） -->
-      <symbol id="shinchan-happy" viewBox="0 0 64 64">
-        <rect x="12" y="7" width="40" height="30" rx="15" fill="#ffd9a8"/>
-        <path d="M12 20 Q12 7 32 7 Q52 7 52 20 Z" fill="#2b2b2b"/>
-        <path d="M29 7 L32 1.5 L35 7 Z" fill="#2b2b2b"/>
-        <rect x="17" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <rect x="36" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <path d="M18.5 28.5 Q22 24.5 25.5 28.5" stroke="#2b2b2b" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-        <path d="M38.5 28.5 Q42 24.5 45.5 28.5" stroke="#2b2b2b" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-        <circle cx="32" cy="32.8" r="1.3" fill="#2b2b2b"/>
-        <path d="M26.5 33 Q32 40.5 37.5 33 Z" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="37.2" rx="3" ry="1.3" fill="#f472b6"/>
-        <circle cx="18" cy="31" r="3" fill="#fda4af" opacity="0.9"/>
-        <circle cx="46" cy="31" r="3" fill="#fda4af" opacity="0.9"/>
-        <rect x="18" y="37" width="28" height="15" rx="6" fill="#ef4444"/>
-        <rect x="19" y="50" width="26" height="9" rx="4" fill="#facc15"/>
-        <rect x="24" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="35" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="22" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <rect x="34" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <ellipse cx="16" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(-12 16 46)"/>
-        <ellipse cx="48" cy="38" rx="3.5" ry="7" fill="#ffd9a8" transform="rotate(28 48 38)"/>
-        <path d="M10 9 l1.2 2.4 2.4 1.2 -2.4 1.2 -1.2 2.4 -1.2 -2.4 -2.4 -1.2 2.4 -1.2 Z" fill="#facc15"/>
-        <path d="M50 8 l1 2 2 1 -2 1 -1 2 -1 -2 -2 -1 2 -1 Z" fill="#facc15"/>
-      </symbol>
+      <!-- 身体：圆球（长大形态，不规则软弹团子，手脚更长） -->
+      <g id="gulu-body-ball">
+        <path d="M48 138 C38 140 32 148 30 156" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M172 138 C182 140 188 148 190 156" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="28" cy="158" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+        <circle cx="192" cy="158" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+        <path d="M94 190 C91 197 88 202 86 207" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M126 190 C129 197 132 202 134 207" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="85" cy="210" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+        <circle cx="135" cy="210" r="6" fill="#ffffff" stroke="#3a2a22" stroke-width="3.5"/>
+        <path d="M43 136 C41 100 73 76 110 76 C147 76 179 100 179 136 C181 171 151 194 112 194 C72 194 45 171 43 136 Z" fill="#ffffff" stroke="#3a2a22" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M110 76 C110 70 110 64 110 61" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M110 64 C96 62 82 50 68 34 C92 42 106 55 110 64 Z" fill="#7cc56c" stroke="#3a2a22" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M110 64 C124 62 138 50 152 34 C128 42 114 55 110 64 Z" fill="#7cc56c" stroke="#3a2a22" stroke-width="3" stroke-linejoin="round"/>
+      </g>
 
-      <!-- 难过：耷拉嘴 + 泪滴（答错鼓励） -->
-      <symbol id="shinchan-sad" viewBox="0 0 64 64">
-        <rect x="12" y="7" width="40" height="30" rx="15" fill="#ffd9a8"/>
-        <path d="M12 20 Q12 7 32 7 Q52 7 52 20 Z" fill="#2b2b2b"/>
-        <path d="M29 7 L32 1.5 L35 7 Z" fill="#2b2b2b"/>
-        <rect x="17" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <rect x="36" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <ellipse cx="22" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <ellipse cx="42" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <circle cx="21" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="41" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="32" cy="32.8" r="1.3" fill="#2b2b2b"/>
-        <path d="M27.5 36.5 Q32 33.5 36.5 36.5" stroke="#2b2b2b" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-        <circle cx="18" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <circle cx="46" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <rect x="18" y="37" width="28" height="15" rx="6" fill="#ef4444"/>
-        <rect x="19" y="50" width="26" height="9" rx="4" fill="#facc15"/>
-        <rect x="24" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="35" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="22" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <rect x="34" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <ellipse cx="16" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(-12 16 46)"/>
-        <ellipse cx="48" cy="38" rx="3.5" ry="7" fill="#ffd9a8" transform="rotate(28 48 38)"/>
-        <path d="M42 33.5 q-1.4 2.6 0 3.6 q1.4 -1 0 -3.6" fill="#60a5fa"/>
-      </symbol>
+      <!-- 表情部件（圆球形态：眼 y≈128 嘴 y≈148） -->
+      <g id="gulu-face-ball-idle">
+        <circle cx="82" cy="128" r="17" fill="#333"/><circle cx="138" cy="128" r="17" fill="#333"/>
+        <circle cx="87" cy="122" r="6" fill="#fff"/><circle cx="91" cy="133" r="2.7" fill="#fff"/>
+        <circle cx="143" cy="122" r="6" fill="#fff"/><circle cx="147" cy="133" r="2.7" fill="#fff"/>
+        <ellipse cx="70" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M98 148 Q110 156 122 148" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="gulu-face-ball-happy">
+        <path d="M66 130 Q74 116 82 130" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M138 130 Q146 116 154 130" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="70" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M92 146 Q110 166 128 146 Z" fill="#333"/>
+        <path d="M100 154 Q110 162 120 154 Z" fill="#ff8a80"/>
+      </g>
+      <g id="gulu-face-ball-sad">
+        <circle cx="82" cy="128" r="16" fill="#333"/><circle cx="138" cy="128" r="16" fill="#333"/>
+        <circle cx="87" cy="122" r="5.5" fill="#fff"/><circle cx="143" cy="122" r="5.5" fill="#fff"/>
+        <path d="M60 120 L82 108" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M160 120 L138 108" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="70" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M98 154 Q110 146 122 154" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M76 150 q-1.6 3 0 4.2 q1.6 -1.2 0 -4.2" fill="#60a5fa"/>
+      </g>
+      <g id="gulu-face-ball-blink">
+        <path d="M68 128 L96 128" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M124 128 L152 128" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="70" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M98 148 Q110 156 122 148" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="gulu-face-ball-celebrate">
+        <path d="M82 116 l2.4 7.2 7.2 2.4 -7.2 2.4 -2.4 7.2 -2.4 -7.2 -7.2 -2.4 7.2 -2.4 Z" fill="#333"/>
+        <path d="M138 116 l2.4 7.2 7.2 2.4 -7.2 2.4 -2.4 7.2 -2.4 -7.2 -7.2 -2.4 7.2 -2.4 Z" fill="#333"/>
+        <ellipse cx="70" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M92 146 Q110 166 128 146 Z" fill="#333"/>
+        <path d="M100 154 Q110 162 120 154 Z" fill="#ff8a80"/>
+        <path d="M58 58 l1.4 4.4 4.4 1.4 -4.4 1.4 -1.4 4.4 -1.4 -4.4 -4.4 -1.4 4.4 -1.4 Z" fill="#facc15"/>
+        <path d="M162 54 l1.4 4.4 4.4 1.4 -4.4 1.4 -1.4 4.4 -1.4 -4.4 -4.4 -1.4 4.4 -1.4 Z" fill="#facc15"/>
+        <path d="M42 108 l1.2 3.8 3.8 1.2 -3.8 1.2 -1.2 3.8 -1.2 -3.8 -3.8 -1.2 3.8 -1.2 Z" fill="#facc15"/>
+        <path d="M180 110 l1.2 3.8 3.8 1.2 -3.8 1.2 -1.2 3.8 -1.2 -3.8 -3.8 -1.2 3.8 -1.2 Z" fill="#facc15"/>
+      </g>
+      <g id="gulu-face-ball-heart">
+        <path d="M82 128 C78 120 70 120 70 126 C70 131 76 136 82 140 C88 136 94 131 94 126 C94 120 86 120 82 128 Z" fill="#ff5a79"/>
+        <path d="M138 128 C134 120 126 120 126 126 C126 131 132 136 138 140 C144 136 150 131 150 126 C150 120 142 120 138 128 Z" fill="#ff5a79"/>
+        <ellipse cx="70" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="142" rx="10" ry="6.5" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M98 148 Q110 156 122 148" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </g>
 
-      <!-- 眨眼：眼睛眯成线（待机小动作） -->
-      <symbol id="shinchan-blink" viewBox="0 0 64 64">
-        <rect x="12" y="7" width="40" height="30" rx="15" fill="#ffd9a8"/>
-        <path d="M12 20 Q12 7 32 7 Q52 7 52 20 Z" fill="#2b2b2b"/>
-        <path d="M29 7 L32 1.5 L35 7 Z" fill="#2b2b2b"/>
-        <rect x="17" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <rect x="36" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <rect x="17.5" y="26.6" width="9" height="2.2" rx="1.1" fill="#2b2b2b"/>
-        <rect x="37.5" y="26.6" width="9" height="2.2" rx="1.1" fill="#2b2b2b"/>
-        <circle cx="32" cy="32.8" r="1.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="34.8" rx="4.4" ry="2.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="35.7" rx="2.4" ry="1.1" fill="#f472b6"/>
-        <circle cx="18" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <circle cx="46" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <rect x="18" y="37" width="28" height="15" rx="6" fill="#ef4444"/>
-        <rect x="19" y="50" width="26" height="9" rx="4" fill="#facc15"/>
-        <rect x="24" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="35" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="22" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <rect x="34" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <ellipse cx="16" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(-12 16 46)"/>
-        <ellipse cx="48" cy="38" rx="3.5" ry="7" fill="#ffd9a8" transform="rotate(28 48 38)"/>
-      </symbol>
+      <!-- 表情部件（馒头形态：眼 y≈142 嘴 y≈166） -->
+      <g id="gulu-face-bun-idle">
+        <circle cx="84" cy="142" r="16" fill="#333"/><circle cx="136" cy="142" r="16" fill="#333"/>
+        <circle cx="89" cy="136" r="6" fill="#fff"/><circle cx="93" cy="147" r="2.6" fill="#fff"/>
+        <circle cx="141" cy="136" r="6" fill="#fff"/><circle cx="145" cy="147" r="2.6" fill="#fff"/>
+        <ellipse cx="70" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M98 166 Q110 174 122 166" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="gulu-face-bun-happy">
+        <path d="M68 144 Q76 130 84 144" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M136 144 Q144 130 152 144" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="70" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M94 160 Q110 178 126 160 Z" fill="#333"/>
+        <path d="M102 168 Q110 174 118 168 Z" fill="#ff8a80"/>
+      </g>
+      <g id="gulu-face-bun-sad">
+        <circle cx="84" cy="142" r="15" fill="#333"/><circle cx="136" cy="142" r="15" fill="#333"/>
+        <circle cx="89" cy="136" r="5.5" fill="#fff"/><circle cx="141" cy="136" r="5.5" fill="#fff"/>
+        <path d="M62 128 L84 120" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M158 128 L136 120" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="70" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M98 172 Q110 164 122 172" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M78 164 q-1.6 3 0 4.2 q1.6 -1.2 0 -4.2" fill="#60a5fa"/>
+      </g>
+      <g id="gulu-face-bun-blink">
+        <path d="M68 142 L96 142" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M124 142 L152 142" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="70" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M98 166 Q110 174 122 166" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="gulu-face-bun-celebrate">
+        <path d="M84 130 l2.4 7.2 7.2 2.4 -7.2 2.4 -2.4 7.2 -2.4 -7.2 -7.2 -2.4 7.2 -2.4 Z" fill="#333"/>
+        <path d="M136 130 l2.4 7.2 7.2 2.4 -7.2 2.4 -2.4 7.2 -2.4 -7.2 -7.2 -2.4 7.2 -2.4 Z" fill="#333"/>
+        <ellipse cx="70" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M94 160 Q110 178 126 160 Z" fill="#333"/>
+        <path d="M102 168 Q110 174 118 168 Z" fill="#ff8a80"/>
+        <path d="M58 64 l1.4 4.4 4.4 1.4 -4.4 1.4 -1.4 4.4 -1.4 -4.4 -4.4 -1.4 4.4 -1.4 Z" fill="#facc15"/>
+        <path d="M162 60 l1.4 4.4 4.4 1.4 -4.4 1.4 -1.4 4.4 -1.4 -4.4 -4.4 -1.4 4.4 -1.4 Z" fill="#facc15"/>
+      </g>
+      <g id="gulu-face-bun-heart">
+        <path d="M84 142 C80 134 72 134 72 140 C72 145 78 150 84 154 C90 150 96 145 96 140 C96 134 88 134 84 142 Z" fill="#ff5a79"/>
+        <path d="M136 142 C132 134 124 134 124 140 C124 145 130 150 136 154 C142 150 148 145 148 140 C148 134 140 134 136 142 Z" fill="#ff5a79"/>
+        <ellipse cx="70" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/><ellipse cx="150" cy="156" rx="9" ry="6" fill="#ffb3a7" opacity="0.6"/>
+        <path d="M98 166 Q110 174 122 166" stroke="#3a2a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </g>
 
-      <!-- 今日：挥手 -->
-      <symbol id="shinchan-home" viewBox="0 0 64 64">
-        <rect x="12" y="7" width="40" height="30" rx="15" fill="#ffd9a8"/>
-        <path d="M12 20 Q12 7 32 7 Q52 7 52 20 Z" fill="#2b2b2b"/>
-        <path d="M29 7 L32 1.5 L35 7 Z" fill="#2b2b2b"/>
-        <rect x="17" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <rect x="36" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <ellipse cx="22" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <ellipse cx="42" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <circle cx="21" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="41" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="32" cy="32.8" r="1.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="34.8" rx="4.4" ry="2.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="35.7" rx="2.4" ry="1.1" fill="#f472b6"/>
-        <circle cx="18" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <circle cx="46" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <rect x="18" y="37" width="28" height="15" rx="6" fill="#ef4444"/>
-        <rect x="19" y="50" width="26" height="9" rx="4" fill="#facc15"/>
-        <rect x="24" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="35" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="22" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <rect x="34" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <ellipse cx="16" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(-12 16 46)"/>
-        <ellipse cx="48" cy="38" rx="3.5" ry="7" fill="#ffd9a8" transform="rotate(28 48 38)"/>
-      </symbol>
+      <!-- 顶层符号：表情 × 成长形态 -->
+      <symbol id="gulu-idle" viewBox="0 0 220 220"><use href="#gulu-body-ball"/><use href="#gulu-face-ball-idle"/></symbol>
+      <symbol id="gulu-idle-bun" viewBox="0 0 220 220"><use href="#gulu-body-bun"/><use href="#gulu-face-bun-idle"/></symbol>
+      <symbol id="gulu-happy" viewBox="0 0 220 220"><use href="#gulu-body-ball"/><use href="#gulu-face-ball-happy"/></symbol>
+      <symbol id="gulu-happy-bun" viewBox="0 0 220 220"><use href="#gulu-body-bun"/><use href="#gulu-face-bun-happy"/></symbol>
+      <symbol id="gulu-sad" viewBox="0 0 220 220"><use href="#gulu-body-ball"/><use href="#gulu-face-ball-sad"/></symbol>
+      <symbol id="gulu-sad-bun" viewBox="0 0 220 220"><use href="#gulu-body-bun"/><use href="#gulu-face-bun-sad"/></symbol>
+      <symbol id="gulu-blink" viewBox="0 0 220 220"><use href="#gulu-body-ball"/><use href="#gulu-face-ball-blink"/></symbol>
+      <symbol id="gulu-blink-bun" viewBox="0 0 220 220"><use href="#gulu-body-bun"/><use href="#gulu-face-bun-blink"/></symbol>
+      <symbol id="gulu-celebrate" viewBox="0 0 220 220"><use href="#gulu-body-ball"/><use href="#gulu-face-ball-celebrate"/></symbol>
+      <symbol id="gulu-celebrate-bun" viewBox="0 0 220 220"><use href="#gulu-body-bun"/><use href="#gulu-face-bun-celebrate"/></symbol>
+      <symbol id="gulu-heart" viewBox="0 0 220 220"><use href="#gulu-body-ball"/><use href="#gulu-face-ball-heart"/></symbol>
+      <symbol id="gulu-heart-bun" viewBox="0 0 220 220"><use href="#gulu-body-bun"/><use href="#gulu-face-bun-heart"/></symbol>
 
-      <!-- 学习：抱书 -->
-      <symbol id="shinchan-learn" viewBox="0 0 64 64">
-        <rect x="12" y="7" width="40" height="30" rx="15" fill="#ffd9a8"/>
-        <path d="M12 20 Q12 7 32 7 Q52 7 52 20 Z" fill="#2b2b2b"/>
-        <path d="M29 7 L32 1.5 L35 7 Z" fill="#2b2b2b"/>
-        <rect x="17" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <rect x="36" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <ellipse cx="22" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <ellipse cx="42" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <circle cx="21" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="41" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="32" cy="32.8" r="1.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="34.8" rx="4.4" ry="2.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="35.7" rx="2.4" ry="1.1" fill="#f472b6"/>
-        <circle cx="18" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <circle cx="46" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <rect x="18" y="37" width="28" height="15" rx="6" fill="#ef4444"/>
-        <rect x="19" y="50" width="26" height="9" rx="4" fill="#facc15"/>
-        <rect x="24" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="35" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="22" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <rect x="34" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <ellipse cx="16" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(-12 16 46)"/>
-        <ellipse cx="48" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(12 48 46)"/>
-        <rect x="22" y="41" width="20" height="13" rx="2" fill="#ffffff"/>
-        <rect x="22" y="41" width="20" height="3.5" fill="#facc15"/>
-        <line x1="32" y1="41" x2="32" y2="54" stroke="#fbbf24" stroke-width="1.4"/>
-        <line x1="25" y1="47" x2="29" y2="47" stroke="#fca5a5" stroke-width="1.4" stroke-linecap="round"/>
-        <line x1="25" y1="50" x2="28" y2="50" stroke="#fca5a5" stroke-width="1.4" stroke-linecap="round"/>
+      <!-- 时装附件：头顶/颈部配件（symbol 自带 viewBox，馒头/圆球两种形态都能对齐） -->
+      <symbol id="gulu-outfit-none" viewBox="0 0 220 220"></symbol>
+      <symbol id="gulu-outfit-crown" viewBox="0 0 220 220">
+        <path d="M76 114 L80 80 L96 102 L110 74 L124 102 L140 80 L144 114 Z" fill="#fbbf24" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="80" cy="78" r="4.5" fill="#ef4444"/><circle cx="110" cy="72" r="4.5" fill="#3b82f6"/><circle cx="140" cy="78" r="4.5" fill="#10b981"/>
       </symbol>
-
-      <!-- 生词本：抱爱心 -->
-      <symbol id="shinchan-notebook" viewBox="0 0 64 64">
-        <rect x="12" y="7" width="40" height="30" rx="15" fill="#ffd9a8"/>
-        <path d="M12 20 Q12 7 32 7 Q52 7 52 20 Z" fill="#2b2b2b"/>
-        <path d="M29 7 L32 1.5 L35 7 Z" fill="#2b2b2b"/>
-        <rect x="17" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <rect x="36" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <ellipse cx="22" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <ellipse cx="42" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <circle cx="21" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="41" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="32" cy="32.8" r="1.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="34.8" rx="4.4" ry="2.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="35.7" rx="2.4" ry="1.1" fill="#f472b6"/>
-        <circle cx="18" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <circle cx="46" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <rect x="18" y="37" width="28" height="15" rx="6" fill="#ef4444"/>
-        <rect x="19" y="50" width="26" height="9" rx="4" fill="#facc15"/>
-        <rect x="24" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="35" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="22" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <rect x="34" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <ellipse cx="16" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(-12 16 46)"/>
-        <ellipse cx="48" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(12 48 46)"/>
-        <path d="M32 45 C28.5 41.5 23 42.5 23 47 C23 51.5 32 55 32 55 C32 55 41 51.5 41 47 C41 42.5 35.5 41.5 32 45 Z" fill="#fda4af" stroke="#f43f5e" stroke-width="1.2"/>
+      <symbol id="gulu-outfit-hat" viewBox="0 0 220 220">
+        <path d="M86 106 Q86 70 110 70 Q134 70 134 106 Z" fill="#fbbf24" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+        <ellipse cx="110" cy="106" rx="54" ry="12" fill="#f59e0b" stroke="#3a2a22" stroke-width="4"/>
+        <path d="M94 108 Q110 100 126 108" fill="none" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
       </symbol>
-
-      <!-- 统计：柱状图 -->
-      <symbol id="shinchan-stats" viewBox="0 0 64 64">
-        <rect x="12" y="7" width="40" height="30" rx="15" fill="#ffd9a8"/>
-        <path d="M12 20 Q12 7 32 7 Q52 7 52 20 Z" fill="#2b2b2b"/>
-        <path d="M29 7 L32 1.5 L35 7 Z" fill="#2b2b2b"/>
-        <rect x="17" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <rect x="36" y="20.5" width="11" height="3.4" rx="1.7" fill="#2b2b2b"/>
-        <ellipse cx="22" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <ellipse cx="42" cy="28" rx="3.8" ry="4.6" fill="#2b2b2b"/>
-        <circle cx="21" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="41" cy="26.8" r="1.2" fill="#ffffff"/>
-        <circle cx="32" cy="32.8" r="1.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="34.8" rx="4.4" ry="2.3" fill="#2b2b2b"/>
-        <ellipse cx="32" cy="35.7" rx="2.4" ry="1.1" fill="#f472b6"/>
-        <circle cx="18" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <circle cx="46" cy="31" r="2.8" fill="#fda4af" opacity="0.9"/>
-        <rect x="18" y="37" width="28" height="15" rx="6" fill="#ef4444"/>
-        <rect x="19" y="50" width="26" height="9" rx="4" fill="#facc15"/>
-        <rect x="24" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="35" y="58" width="5" height="4" fill="#ffd9a8"/>
-        <rect x="22" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <rect x="34" y="60" width="8" height="3" rx="1.5" fill="#ef4444"/>
-        <ellipse cx="16" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(-12 16 46)"/>
-        <ellipse cx="48" cy="46" rx="3.5" ry="6" fill="#ffd9a8" transform="rotate(12 48 46)"/>
-        <rect x="21" y="52" width="22" height="2.5" rx="1" fill="#ffffff" opacity="0.9"/>
-        <rect x="25" y="45" width="5" height="7" rx="1" fill="#facc15"/>
-        <rect x="31" y="41" width="5" height="11" rx="1" fill="#ffffff"/>
-        <rect x="37" y="43" width="5" height="9" rx="1" fill="#facc15"/>
+      <symbol id="gulu-outfit-scarf" viewBox="0 0 220 220">
+        <path d="M60 154 Q110 168 160 154 Q162 172 160 180 L60 180 Q58 172 60 154 Z" fill="#f87171" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M96 176 Q104 200 100 210 L114 210 Q118 198 112 176 Z" fill="#ef4444" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M126 176 Q132 198 128 208 L140 208 Q144 196 138 176 Z" fill="#fca5a5" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="gulu-outfit-bow" viewBox="0 0 220 220">
+        <path d="M110 66 C84 42 56 48 60 68 C63 84 82 88 110 66 Z" fill="#f472b6" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M110 66 C136 42 164 48 160 68 C157 84 138 88 110 66 Z" fill="#f9a8d4" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="110" cy="66" r="9" fill="#ec4899" stroke="#3a2a22" stroke-width="4"/>
+      </symbol>
+      <symbol id="gulu-outfit-santa" viewBox="0 0 220 220">
+        <path d="M96 110 L110 40 L124 110 Z" fill="#ef4444" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M88 112 Q110 122 132 112 L132 106 Q110 116 88 106 Z" fill="#f8fafc" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="110" cy="38" r="9" fill="#f8fafc" stroke="#3a2a22" stroke-width="4"/>
+      </symbol>
+      <symbol id="gulu-outfit-ears" viewBox="0 0 220 220">
+        <path d="M88 88 C82 46 96 18 104 12 C116 20 112 50 106 88 Z" fill="#ffffff" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M132 88 C138 46 124 18 116 12 C104 20 108 50 114 88 Z" fill="#ffffff" stroke="#3a2a22" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M92 82 C88 56 96 36 102 30 C106 40 102 58 100 82 Z" fill="#fbcfe8"/>
+        <path d="M128 82 C132 56 124 36 118 30 C114 40 118 58 120 82 Z" fill="#fbcfe8"/>
       </symbol>
     </defs>
   </svg>
@@ -255,14 +208,20 @@
     <!-- 顶栏 -->
     <header class="px-5 pt-6 pb-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <svg class="w-9 h-9" aria-hidden="true"><use href="#shinchan"/></svg>
+        <svg class="w-9 h-9" aria-hidden="true"><use id="headerMascotUse" href="#gulu-idle"/><use id="headerOutfit" href="#gulu-outfit-none"/></svg>
         <div>
           <h1 class="text-xl font-bold text-slate-800 font-display" id="viewTitle">今日</h1>
           <p class="text-xs text-slate-400" id="viewSubtitle">开始今天的背单词吧</p>
         </div>
       </div>
-      <div class="badge badge-lg gap-1 border-0 bg-amber-100 text-orange-600 font-semibold">
-        <span>🔥</span><span id="headerStreak" class="font-num">0</span><span class="text-slate-400 font-normal">天</span>
+      <div class="flex items-center gap-1">
+        <div class="badge gap-1 border-0 bg-amber-100 text-orange-600 font-semibold">
+          <span>🔥</span><span id="headerStreak" class="font-num">0</span><span class="text-slate-400 font-normal">天</span>
+        </div>
+        <div class="badge border-0 bg-violet-100 text-violet-600 font-semibold font-num" id="headerLevel">Lv.1</div>
+        <div class="badge gap-1 border-0 bg-yellow-100 text-amber-600 font-semibold">
+          <span>🪙</span><span id="headerCoins" class="font-num">0</span>
+        </div>
       </div>
     </header>
 
@@ -284,8 +243,8 @@
             </div>
             <div class="flex flex-col items-end">
               <div id="bubble" class="bubble bg-white text-slate-700 text-xs font-medium rounded-2xl rounded-br-none px-3 py-1.5 shadow">嗨！一起背单词吧～</div>
-              <button id="mascotHero" class="mascot-btn mt-2" aria-label="摸摸小新">
-                <svg class="hero-shinchan" aria-hidden="true"><use href="#shinchan"/></svg>
+              <button id="mascotHero" class="mascot-btn mt-2" aria-label="摸摸咕噜">
+                <svg class="hero-mascot" aria-hidden="true"><use href="#gulu-idle"/><use id="heroOutfit" href="#gulu-outfit-none"/></svg>
               </button>
             </div>
           </div>
@@ -305,12 +264,21 @@
           </div>
         </div>
 
+        <!-- 每日签到 -->
+        <div class="mt-5 rounded-3xl bg-white p-5 shadow-sm flex items-center justify-between gap-3">
+          <div class="text-left">
+            <p class="font-semibold text-slate-700">每日签到</p>
+            <p class="text-xs text-slate-400 mt-0.5" id="checkInLabel">连签第 1 天可领 10 金币 + 5 经验</p>
+          </div>
+          <button id="checkInBtn" class="btn rounded-full border-0 shrink-0">签到领奖</button>
+        </div>
+
         <!-- 学习入口 -->
         <div class="mt-5 space-y-3">
           <button id="btnLearnNew" class="entry-card">
             <div class="flex items-center gap-3">
               <div class="w-11 h-11 rounded-xl bg-rose-100 flex items-center justify-center">
-                <svg class="w-7 h-7" aria-hidden="true"><use href="#shinchan-learn"/></svg>
+                <svg class="w-7 h-7" aria-hidden="true"><use href="#gulu-happy"/></svg>
               </div>
               <div class="text-left">
                 <p class="font-semibold">学习新词</p>
@@ -323,7 +291,7 @@
           <button id="btnReview" class="entry-card">
             <div class="flex items-center gap-3">
               <div class="w-11 h-11 rounded-xl bg-amber-100 flex items-center justify-center">
-                <svg class="w-7 h-7" aria-hidden="true"><use href="#shinchan-stats"/></svg>
+                <svg class="w-7 h-7" aria-hidden="true"><use href="#gulu-idle"/></svg>
               </div>
               <div class="text-left">
                 <p class="font-semibold">复习单词</p>
@@ -346,7 +314,7 @@
             <button id="btnLearnNew2" class="entry-card">
               <div class="flex items-center gap-3">
                 <div class="w-11 h-11 rounded-xl bg-rose-100 flex items-center justify-center">
-                  <svg class="w-7 h-7" aria-hidden="true"><use href="#shinchan-learn"/></svg>
+                  <svg class="w-7 h-7" aria-hidden="true"><use href="#gulu-happy"/></svg>
                 </div>
                 <div class="text-left"><p class="font-semibold">学习新词</p><p class="text-xs text-slate-400">认识新的四级单词</p></div>
               </div>
@@ -355,7 +323,7 @@
             <button id="btnReview2" class="entry-card">
               <div class="flex items-center gap-3">
                 <div class="w-11 h-11 rounded-xl bg-amber-100 flex items-center justify-center">
-                  <svg class="w-7 h-7" aria-hidden="true"><use href="#shinchan-stats"/></svg>
+                  <svg class="w-7 h-7" aria-hidden="true"><use href="#gulu-idle"/></svg>
                 </div>
                 <div class="text-left"><p class="font-semibold">复习单词</p><p class="text-xs text-slate-400">按艾宾浩斯曲线巩固记忆</p></div>
               </div>
@@ -374,7 +342,8 @@
 
           <!-- 学习 / 复习统一四选一 -->
           <div id="studyQuizArea" class="mt-5">
-            <div class="rounded-3xl bg-white p-6 shadow-sm text-center">
+            <div class="rounded-3xl bg-white p-6 shadow-sm text-center relative">
+              <div id="comboBadge" class="combo-badge hidden">🔥 x0</div>
               <p class="text-xs text-slate-400 mb-2">选择正确的释义</p>
               <div class="flex items-center justify-center gap-3">
                 <p class="text-3xl font-bold text-slate-800 break-words font-num" id="quizWord">word</p>
@@ -385,7 +354,7 @@
             <div id="quizOptions" class="space-y-3"></div>
             <div id="quizFeedback" class="hidden mt-5">
               <div id="quizFeedbackAlert" class="alert rounded-2xl shadow-sm">
-                <svg id="feedbackMascot" class="w-12 h-12 shrink-0" aria-hidden="true"><use href="#shinchan"/></svg>
+                <svg id="feedbackMascot" class="w-12 h-12 shrink-0" aria-hidden="true"><use href="#gulu-idle"/></svg>
                 <div id="feedbackBody" class="text-sm"></div>
               </div>
             </div>
@@ -400,7 +369,7 @@
           <p class="text-sm text-slate-400">收藏了 <span id="notebookCount" class="font-bold text-slate-600 font-num">0</span> 个生词</p>
         </div>
         <div id="notebookEmpty" class="hidden text-center py-16 text-slate-400">
-          <svg class="w-24 h-24 mx-auto mb-3 opacity-90 sway" aria-hidden="true"><use href="#shinchan-notebook"/></svg>
+          <svg class="w-24 h-24 mx-auto mb-3 opacity-90 sway" aria-hidden="true"><use id="notebookMascotUse" href="#gulu-heart"/></svg>
           <p>还没有生词，学习时点击「标记生词」收藏</p>
         </div>
         <div id="notebookList" class="space-y-2"></div>
@@ -427,6 +396,21 @@
           </div>
         </div>
 
+        <div class="grid grid-cols-3 gap-3 mb-5">
+          <div class="stat bg-base-100 rounded-2xl shadow-sm text-center">
+            <div class="stat-value text-violet-500 font-num" id="statsLevel">Lv.1</div>
+            <div class="stat-title">等级</div>
+          </div>
+          <div class="stat bg-base-100 rounded-2xl shadow-sm text-center">
+            <div class="stat-value text-orange-500 font-num" id="statsXp">0</div>
+            <div class="stat-title">经验值</div>
+          </div>
+          <div class="stat bg-base-100 rounded-2xl shadow-sm text-center">
+            <div class="stat-value text-amber-500 font-num" id="statsCoins">0</div>
+            <div class="stat-title">金币</div>
+          </div>
+        </div>
+
         <h2 class="text-sm font-semibold text-slate-600 mb-3">最近打卡</h2>
         <div class="rounded-2xl bg-white p-4 shadow-sm">
           <div id="heatmap" class="grid grid-cols-7 gap-1.5"></div>
@@ -443,25 +427,38 @@
         <button id="btnReset" class="w-full mt-5 btn btn-ghost normal-case text-slate-400 hover:text-rose-500">重置所有学习数据</button>
       </section>
 
+      <!-- 商城 -->
+      <section id="view-shop" class="view hidden">
+        <div class="flex items-center justify-between mb-4">
+          <p class="text-sm text-slate-400">给咕噜换新装</p>
+          <span class="badge badge-lg border-0 bg-yellow-100 text-amber-600 font-semibold"><span>🪙</span><span id="shopCoins" class="font-num ml-1">0</span></span>
+        </div>
+        <div id="shopGrid" class="grid grid-cols-2 gap-3"></div>
+      </section>
+
     </main>
 
     <!-- 底部导航 -->
     <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/85 backdrop-blur border-t border-rose-100 flex">
       <button class="nav-tab" data-view="today">
-        <svg class="nav-icon" aria-hidden="true"><use href="#shinchan-home"/></svg>
+        <svg class="nav-icon" aria-hidden="true"><use href="#gulu-idle"/></svg>
         <span>今日</span>
       </button>
       <button class="nav-tab" data-view="study">
-        <svg class="nav-icon" aria-hidden="true"><use href="#shinchan-learn"/></svg>
+        <svg class="nav-icon" aria-hidden="true"><use href="#gulu-happy"/></svg>
         <span>学习</span>
       </button>
       <button class="nav-tab" data-view="notebook">
-        <svg class="nav-icon" aria-hidden="true"><use href="#shinchan-notebook"/></svg>
+        <svg class="nav-icon" aria-hidden="true"><use href="#gulu-heart"/></svg>
         <span>生词本</span>
       </button>
       <button class="nav-tab" data-view="stats">
-        <svg class="nav-icon" aria-hidden="true"><use href="#shinchan-stats"/></svg>
+        <svg class="nav-icon" aria-hidden="true"><use href="#gulu-celebrate"/></svg>
         <span>统计</span>
+      </button>
+      <button class="nav-tab" data-view="shop">
+        <svg class="nav-icon" aria-hidden="true"><use href="#gulu-happy"/></svg>
+        <span>商城</span>
       </button>
     </nav>
   </div>
@@ -481,7 +478,7 @@
   <!-- 学习完成弹窗 -->
   <dialog id="doneModal" class="modal">
     <div class="modal-box text-center">
-      <svg class="w-16 h-16 mx-auto" aria-hidden="true"><use href="#shinchan-happy"/></svg>
+      <svg class="w-16 h-16 mx-auto" aria-hidden="true"><use id="doneMascotUse" href="#gulu-celebrate"/></svg>
       <h3 id="doneModalTitle" class="font-bold text-lg mt-2 font-display">本轮新词学完啦！</h3>
       <p id="doneModalBody" class="py-3 text-sm text-slate-500"></p>
       <div class="modal-action justify-center">
